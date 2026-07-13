@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.nio.file.*;
 import java.util.Scanner;
 public class Main{
@@ -17,10 +18,20 @@ public class Main{
          System.out.println("4 - Quit");
          
          int userChoice = scanner.nextInt();
+         scanner.nextLine();
          switch (userChoice) {
              case 1:
-                 System.out.println(System.getProperty("user.dir"));
-                 
+                 try {
+                     System.out.println();
+                     System.out.println("write name of new directory:");
+                     String folderName = scanner.nextLine();
+                     Path folder = currPath.resolve(folderName);
+                     Files.createDirectory(folder);
+                 } catch (IOException e) {
+                    System.out.println("Error creating directory: " + e.getMessage());
+
+                 }
+
                  break;
              case 4:
                 isRunning = false;
