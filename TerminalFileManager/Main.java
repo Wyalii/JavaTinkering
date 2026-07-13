@@ -2,24 +2,11 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.util.Scanner;
 public class Main{
-    public static void main(String[]args) {
-        Path currPath = Paths.get(System.getProperty("user.dir"));
-       Scanner scanner = new Scanner(System.in);
-       boolean isRunning = true;
-       System.out.println("F I L E   M A N A G E R  <3");
-       System.out.println("");
-       while (isRunning) {
-         System.out.println("current working path:" + currPath);
-         System.out.println();
-         System.out.println("OPTIONS:");
-         System.out.println("1 - create new directory");
-         System.out.println("2 - create new file");
-         System.out.println("3 - switch current path");         
-         System.out.println("4 - Quit");
-         
-         int userChoice = scanner.nextInt();
-         scanner.nextLine();
-         switch (userChoice) {
+    Path currPath = Paths.get(System.getProperty("user.dir"));
+    Scanner scanner = new Scanner(System.in);
+    boolean isRunning = true;
+    public void fileManager(int userChoice){
+        switch (userChoice) {
              case 1:
                  try {
                      System.out.println();
@@ -58,6 +45,7 @@ public class Main{
                         System.out.println("path doesn't exists");
                     }
                 } catch (Exception e) {
+                    System.out.println("Error switching to new path: " + e.getMessage());
                 }
                 break;
                  
@@ -67,6 +55,27 @@ public class Main{
              default:
                  throw new AssertionError();
          } 
+    }
+    public void userInterface(){
+       System.out.println("F I L E   M A N A G E R  <3");
+       System.out.println("");
+       while (isRunning) {
+         System.out.println("current working path:" + currPath);
+         System.out.println();
+         System.out.println("OPTIONS:");
+         System.out.println("1 - create new directory");
+         System.out.println("2 - create new file");
+         System.out.println("3 - switch current path");         
+         System.out.println("4 - Quit");
+         
+         int userChoice = scanner.nextInt();
+         scanner.nextLine();
+         fileManager(userChoice);
+         
        }       
+    }
+    public static void main(String[]args) {
+      Main Application = new Main();
+      Application.userInterface();      
     }
 }
