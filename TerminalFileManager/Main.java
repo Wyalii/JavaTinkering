@@ -53,11 +53,17 @@ public class Main{
                 String filePath = scanner.nextLine();
                     try {
                         if(Files.exists(Path.of(filePath))){
-                        System.out.println(Files.readAllLines(Path.of(filePath)));
+                        System.out.println();
+                        System.out.println("-----------------");
+                        for(String line: Files.readAllLines(Path.of(filePath))){
+                          System.out.println(line);
+                        }
+                        System.out.println("-----------------");
+                        System.out.println();
                     }else{
                         System.out.println("path doesn't exists");
                     }
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         System.out.println("Error reading file contents: " + e.getMessage());
                     }
                 break;    
@@ -80,12 +86,34 @@ public class Main{
          System.out.println("3 - switch current path");         
          System.out.println("4 - read file");
          System.out.println("5 - Quit");
-         
-         int userChoice = scanner.nextInt();
-         scanner.nextLine();
+         int userChoice = 0;
+         if(scanner.hasNextInt()){
+             userChoice = scanner.nextInt();
+            scanner.nextLine();
+         }else{
+            System.out.println("Please write avaiable option.");
+            scanner.nextLine();
+            // clearTerminal();
+            continue;
+         }
+
          fileManager(userChoice);
          
+         
        }       
+    }
+    public void clearTerminal()
+    {
+        String os = System.getProperty("os.name");
+        try {
+            if (os.contains("Windows")) {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start();
+        }else{
+            new ProcessBuilder("clear").inheritIO().start();
+        }
+        } catch (IOException e) {
+            System.out.println("Error clearing terminal window: " + e.getMessage());
+        }
     }
     public static void main(String[]args) {
       Main Application = new Main();
