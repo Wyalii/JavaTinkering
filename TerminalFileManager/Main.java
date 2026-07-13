@@ -3,12 +3,12 @@ import java.nio.file.*;
 import java.util.Scanner;
 public class Main{
     public static void main(String[]args) {
+        Path currPath = Paths.get(System.getProperty("user.dir"));
        Scanner scanner = new Scanner(System.in);
        boolean isRunning = true;
        System.out.println("F I L E   M A N A G E R  <3");
        System.out.println("");
        while (isRunning) {
-         Path currPath = Paths.get(System.getProperty("user.dir"));
          System.out.println("current working path:" + currPath);
          System.out.println();
          System.out.println("OPTIONS:");
@@ -43,9 +43,23 @@ public class Main{
                     Files.createFile(file);
                     System.out.println("created file at: "+ file);
                      
-                 } catch (Exception e) {
+                 } catch (IOException e) {
+                    System.out.println("Error creating file: " + e.getMessage());
                  }
                break;
+
+               case 3:
+                try {
+                    System.out.println("write new path: ");
+                    String newPath = scanner.nextLine();
+                    if(Files.exists(Path.of(newPath))){
+                        currPath = Path.of(newPath);
+                    }else{
+                        System.out.println("path doesn't exists");
+                    }
+                } catch (Exception e) {
+                }
+                break;
                  
              case 4:
                 isRunning = false;
