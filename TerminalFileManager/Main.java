@@ -48,8 +48,20 @@ public class Main{
                     System.out.println("Error switching to new path: " + e.getMessage());
                 }
                 break;
-                 
              case 4:
+                System.out.println("write file path: ");
+                String filePath = scanner.nextLine();
+                    try {
+                        if(Files.exists(Path.of(filePath))){
+                        System.out.println(Files.readAllLines(Path.of(filePath)));
+                    }else{
+                        System.out.println("path doesn't exists");
+                    }
+                    } catch (IOException e) {
+                        System.out.println("Error reading file contents: " + e.getMessage());
+                    }
+                break;    
+             case 5:
                 isRunning = false;
                 break;    
              default:
@@ -66,7 +78,8 @@ public class Main{
          System.out.println("1 - create new directory");
          System.out.println("2 - create new file");
          System.out.println("3 - switch current path");         
-         System.out.println("4 - Quit");
+         System.out.println("4 - read file");
+         System.out.println("5 - Quit");
          
          int userChoice = scanner.nextInt();
          scanner.nextLine();
