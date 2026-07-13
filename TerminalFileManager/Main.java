@@ -27,12 +27,26 @@ public class Main{
                      String folderName = scanner.nextLine();
                      Path folder = currPath.resolve(folderName);
                      Files.createDirectory(folder);
+                     System.out.println("created directory at: " + folder);
                  } catch (IOException e) {
                     System.out.println("Error creating directory: " + e.getMessage());
 
                  }
+               break;
 
-                 break;
+              case 2 :
+                 try {
+                    System.out.println();
+                    System.out.println("write name of new file:");
+                    String fileName = scanner.nextLine();
+                    Path file = currPath.resolve(fileName);
+                    Files.createFile(file);
+                    System.out.println("created file at: "+ file);
+                     
+                 } catch (Exception e) {
+                 }
+               break;
+                 
              case 4:
                 isRunning = false;
                 break;    
