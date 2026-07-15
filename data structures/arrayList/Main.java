@@ -1,15 +1,15 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
 public class Main{
     public static void main(String args[]){
         ArrayList<String> foodList = new ArrayList<>();
-        foodList.add("Apple"); 
-        foodList.add("Bread");
+        
         foodList.add("Banana");
         foodList.add("Kinhkali");
         foodList.add("Khachapuri");
+        foodList.add("Apple"); 
+        foodList.add("Bread");
         System.out.println(foodList);
         // for(String food:foodList){
         //     System.out.println(food);
@@ -34,7 +34,14 @@ public class Main{
         foodList.removeAll(Arrays.asList(newFoodList));
         System.out.println(foodList);
         System.err.println(foodList.clone());
-        ArrayList<String> copiedFood = new ArrayList<>(foodList);
+        // Collections.sort(foodList);
+        foodList.sort(null);
+        System.out.println("S O R T E D ");
+        System.out.println("");
+        for (String f:foodList){
+            System.err.println(f);
+        }
+        
         
     }
 }
