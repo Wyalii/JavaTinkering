@@ -24,5 +24,6 @@ class Main{
       System.out.println();
       Collections.sort(cars,Collections.reverseOrder());
       System.out.println(cars);
+    
     }
 }
