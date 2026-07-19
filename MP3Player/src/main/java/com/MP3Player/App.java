@@ -1,10 +1,10 @@
 package com.MP3Player;
-import com.MP3Player.repositories.DeezerApi;
+import com.MP3Player.ui.ConsoleUI;
 public class App 
 {
     public static void main( String[] args )
     {
-        DeezerApi deezerApiRepository = new DeezerApi();
-        System.out.println(deezerApiRepository.getTracks());
+        ConsoleUI consoleUI = new ConsoleUI();
+        consoleUI.start();
     }
 }

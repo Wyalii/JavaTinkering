@@ -1,4 +1,6 @@
 /home/wyalii/LearningJava/MP3Player/src/main/java/com/MP3Player/App.java
 /home/wyalii/LearningJava/MP3Player/src/main/java/com/MP3Player/models/Artist.java
 /home/wyalii/LearningJava/MP3Player/src/main/java/com/MP3Player/models/Track.java
-/home/wyalii/LearningJava/MP3Player/src/main/java/com/MP3Player/repositories/DeezerApi.java
+/home/wyalii/LearningJava/MP3Player/src/main/java/com/MP3Player/repositories/DeezerApiRepository.java
+/home/wyalii/LearningJava/MP3Player/src/main/java/com/MP3Player/services/DeezerService.java
+/home/wyalii/LearningJava/MP3Player/src/main/java/com/MP3Player/ui/ConsoleUI.java
