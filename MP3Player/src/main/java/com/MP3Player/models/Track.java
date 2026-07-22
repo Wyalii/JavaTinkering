@@ -11,12 +11,18 @@ public  class Track{
     @Override
     public String toString()
     {
-      return "Track{" +
-             "id=" + id +
-             ", title='" + title + '\'' +
-             ", preview='" + preview + '\'' +
-             ", artist=" + artist +
-             '}';
+      return String.format(
+        
+        """
+          Id: %d,
+          Title: %s,
+          Artist: %s,      
+                
+        """,
+        id,
+        title,
+        artist.getName()
+        );
     }
     public Track(){
 

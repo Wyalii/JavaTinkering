@@ -32,5 +32,19 @@ public class DeezerApiRepository{
     return null;
     
   }
+
+  public List<Track> searchTrack(String query)
+  {
+    try {
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(defaultUrl +"/search?q=" +query)).GET().build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        JsonNode root = objectMapper.readTree(response.body());
+        return objectMapper.convertValue(root.get("data"), new TypeReference<List<Track>>(){});
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+  
   
 }

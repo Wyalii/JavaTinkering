@@ -17,12 +17,22 @@ public class ConsoleUI{
             System.out.println();
             System.out.println("1 - Get Tracks");
             System.out.println("2 - Search Tracks");
-            System.out.println("3 - Quit");
+            System.out.println("3 - Play Preview");
+            System.out.println("4 - Quit");
             Integer userOption = scanner.nextInt();
+            scanner.nextLine();
             switch (userOption) {
                 case 1:
-                  deezerService.test();
+                  deezerService.getTracksGeneral();
                     break;
+
+                case 2:
+                    System.out.println();
+                    System.out.println("Type Search Query:");
+                    String userQuery = scanner.nextLine();
+                    deezerService.searchTracks(userQuery);
+                    
+                    break;    
                 default:
                     throw new AssertionError();
             }
