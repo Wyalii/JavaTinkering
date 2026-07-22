@@ -45,6 +45,19 @@ public class DeezerApiRepository{
     }
     return null;
   }
+
+  public Track getTrack(Long id)
+  {
+    try {
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(defaultUrl +"track/"+id)).GET().build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        JsonNode root = objectMapper.readTree(response.body());
+        return  objectMapper.convertValue(root,Track.class ); 
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return  null;
+  }
   
   
 }

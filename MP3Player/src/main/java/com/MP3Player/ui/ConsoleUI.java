@@ -32,7 +32,13 @@ public class ConsoleUI{
                     String userQuery = scanner.nextLine();
                     deezerService.searchTracks(userQuery);
                     
-                    break;    
+                    break;  
+                case 3:
+                    System.out.println();
+                    System.out.println("provide track id:");
+                    long songId = scanner.nextLong();
+                    deezerService.playTrack(songId);
+                    break;      
                 default:
                     throw new AssertionError();
             }
